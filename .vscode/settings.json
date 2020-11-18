@@ -1,0 +1,27 @@
+{
+    "python.pythonPath": "env\\Scripts\\python.exe",
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        ".vscode": false,
+        "**/*.pyc": true,
+        // "env": true,
+    },
+    "workbench.editor.enablePreview": false,
+    "editor.minimap.enabled": true,
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": [
+        "--aggressive",
+        "--aggressive",
+    ],
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+}
