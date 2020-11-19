@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "routEar"
+version = "0.0.1"
+description = "Receives JSON data from router to notify the user (Through Desktop Notification) about various network information."
+authors = ["Mahir Labib Chowdhury <optical.mahir@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/m4hi2/routEar"
+license = "MIT"
+packages = [
+    {include = "routEar"}
+]
+#keywords = ["trakt", "scrobbler"]
+#classifiers = [
+#    "Development Status :: 5 - Production/Stable",
+#    "Intended Audience :: End Users/Desktop",
+#    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+#    "Operating System :: OS Independent",
+#]
+
+[tool.poetry.dependencies]
+python = "^3"
+#click = "^7.1.2"
+Flask = "^1.1.2"
+#itsdangerous = "^1.1.0"
+#Jinja2 = "^2.11.2"
+#MarkupSafe = "^1.1.1"
+#Werkzeug = "^1.0.1"
+
+pywin32 = {version = "300", platform = "win32"}
+
+win10toast = {version = "^0.9", platform = "win32"}
+pydbus = { version = "^1.2.16", platform = "linux"}
+
+[tool.poetry.scripts]
+routEar = "routEar"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
