@@ -1,5 +1,4 @@
 {
-    "python.pythonPath": "env\\Scripts\\python.exe",
     "editor.formatOnSave": true,
     "editor.rulers": [
         80,
