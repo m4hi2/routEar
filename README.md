@@ -62,11 +62,11 @@ Netwatch Down:
 /tool fetch http-method=post http-data="{\"affected\":\"internet\",\"status\":\"down\"}" output=none url="http://X.X.X.X:8000/"  http-header-field="content-type: application/json"
 ```
 
-Don't forget to change X.X.X.X with the IP of your desktop. Also, use staick IP for the host.
+Don't forget to change X.X.X.X with the IP of your desktop. Also, use static IP for the host.
 
 ### OpenWRT
 
-IDK man, don't have any OpenWrt box rn. maybe some `curl` stuff? no clue. If you know, please write and send a pull req. TY!
+IDK man, don't have any OpenWrt box right now. Maybe some `curl` stuff? no clue. If you know, please write and send a pull request. Thank You !
 
 ## Awesome Discord
 
