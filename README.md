@@ -8,7 +8,7 @@ The fucntionality can be adapted to show any kind of network related diagnostic 
 
 ## OS Support
 
-[✔] Windows
+[✔] Windows 10
 
 [❌] macOS
 
