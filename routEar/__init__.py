@@ -16,6 +16,9 @@ elif plt == "linux":
         '/org/freedesktop/Notifications'
     )
     notif_id = None
+
+elif plt == "darwin":
+    import pync
 else:
     print("unsupported platform")
     sys.exit(1)
@@ -44,6 +47,12 @@ def notify(title='title', body='text', icon='python'):
             None,
             -1
         )
+    elif plt == "darwin":
+        pync.notify(
+            f"{title} \n {body}",
+            title="routEar"
+        )
+
     else:
         return False
     return True
