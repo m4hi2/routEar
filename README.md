@@ -12,7 +12,7 @@ The fucntionality can be adapted to show any kind of network related diagnostic 
 
 [❌] macOS
 
-[❌] GNU/Linux
+[✔] GNU/Linux
 
 PS: I hope people will implement the other OS supports as needed. I'll probably add macOS support myself. But don't angry mail me please. 🥺
 
