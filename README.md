@@ -23,17 +23,21 @@ Get the code:
 ``` bash
 git clone https://github.com/m4hi2/routEar.git
 ```
-
+Install pypoetry:
+```bash
+python3 -m pip install poetry
+```
 Install the required packages with:
 
 ``` bash
-pip install -r requirements.txt
+poetry export -f requirements.txt > r.txt
+pip install -r r.txt
 ```
 
 Run the app with:
 
 ``` bash
-python main.py
+python -m routEar
 ```
 
 Don't forget to click `allow` on the firewall prompt when prompted.
