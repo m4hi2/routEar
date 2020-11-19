@@ -5,7 +5,7 @@ from os import path
 
 if sys.platform == "win32":
     from win10toast import ToastNotifier
-    notif = ToastNotifier()
+    toaster = ToastNotifier()
 elif sys.platform == "linux":
     from pydbus import SessionBus
     bus = SessionBus()
@@ -21,19 +21,20 @@ else:
 
 def notify(title='title', body='text', icon='python'):
     if sys.platform == "win32":
+        global toaster
         toaster.show_toast(
             title,
             body,
             threaded=True,
             icon_path=path.join(
-                next(i for i in routEar.__path__), 'data', '%s.ico' % icon)
+                next(i for i in __path__), 'data', '%s.ico' % icon)
         )
     elif sys.platform == "linux":
-        global notif_id
+        global notif, notif_id
         notif_id = notif.Notify(
             "routEar",
             notif_id or 0,
-            'file://%s' % path.join(next(i for i in routEar.__path__),
+            'file://%s' % path.join(next(i for i in __path__),
                                     'data', '%s.png' % icon),
             title,
             body,
