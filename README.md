@@ -36,6 +36,10 @@ Run the app with:
 python main.py
 ```
 
+### Using the exe file from release
+
+I've created a windows binary using `pyinstaller` and it can be found under [releases](https://github.com/m4hi2/routEar/releases/tag/v0.1.0-alpha). This exe file can be directly ran by double clicking it or you can put it in your startup directory. Don't forget the icon file though 🤣
+
 ## Setup/Scripting on the router side
 
 ### Mikrotik
