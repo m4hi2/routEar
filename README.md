@@ -10,7 +10,7 @@ The fucntionality can be adapted to show any kind of network related diagnostic 
 
 [✔] Windows 10
 
-[❌] macOS
+[✔] macOS
 
 [✔] GNU/Linux
 
