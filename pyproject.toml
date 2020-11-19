@@ -30,6 +30,7 @@ pywin32 = {version = "300", platform = "win32"}
 
 win10toast = {version = "^0.9", platform = "win32"}
 pydbus = { version = "^0.6", platform = "linux"}
+pync = "^2.0.3"
 
 [tool.poetry.scripts]
 routEar = "routEar.__main__:main"
