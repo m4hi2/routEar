@@ -18,31 +18,36 @@ else:
     print("unsupported platform")
     sys.exit(1)
 
-def notify( title='title', body='text', icon='python'):
+
+def notify(title='title', body='text', icon='python'):
     if sys.platform == "win32":
         toaster.show_toast(
             title,
             body,
             threaded=True,
-            icon_path=path.join(next(i for i in routEar.__path__),'data', '%s.ico'%icon)
+            icon_path=path.join(
+                next(i for i in routEar.__path__), 'data', '%s.ico' % icon)
         )
     elif sys.platform == "linux":
         global notif_id
         notif_id = notif.Notify(
             "routEar",
             notif_id or 0,
-            'file://%s'%path.join(next(i for i in routEar.__path__),'data', '%s.png'%icon),
+            'file://%s' % path.join(next(i for i in routEar.__path__),
+                                    'data', '%s.png' % icon),
             title,
             body,
             None,
             None,
             -1
         )
-    else
+    else:
         return False
     return True
 
+
 app = Flask(__name__)
+
 
 @app.route('/', methods=['POST'])
 def callback():
