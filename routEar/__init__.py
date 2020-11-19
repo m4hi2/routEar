@@ -18,6 +18,7 @@ else:
     print("unsupported platform")
     sys.exit(1)
 
+
 def notify(title='title', body='text', icon='python'):
     if sys.platform == "win32":
         global toaster
