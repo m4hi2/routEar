@@ -14,8 +14,6 @@ The fucntionality can be adapted to show any kind of network related diagnostic 
 
 [✔] GNU/Linux
 
-PS: I hope people will implement the other OS supports as needed. I'll probably add macOS support myself. But don't angry mail me please. 🥺
-
 ## Usage
 
 Get the code:
@@ -23,10 +21,13 @@ Get the code:
 ``` bash
 git clone https://github.com/m4hi2/routEar.git
 ```
+
 Install pypoetry:
+
 ```bash
 python3 -m pip install poetry
 ```
+
 Install the required packages with:
 
 ``` bash
