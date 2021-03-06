@@ -1,9 +1,5 @@
 import sys
-from . import app
-
-
-def main(args=None):
-    app.run(debug=True, host="0.0.0.0", port=8000)
+from .app import main
 
 
 if __name__ == "__main__":
