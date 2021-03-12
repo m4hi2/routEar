@@ -1,28 +1,26 @@
+"""This is the main module."""
+
+
 import sys
 
-from flask import Flask, request, Response
 from os import path
+from flask import Flask, request, Response
 
-plt = sys.platform
+PLT = sys.platform
 
-if plt == "win32":
+if PLT == "win32":
     from win10toast import ToastNotifier
     toaster = ToastNotifier()
-elif plt == "linux":
+elif PLT == "linux":
     from contextlib import closing
-    try:
-        from jeepney import DBusAddress, new_method_call
-        from jeepney.io.blocking import open_dbus_connection
-    except (ImportError, ModuleNotFoundError):
-        import subprocess as sp
-        notifier, notif_id = None, None
-    else:
-        notifier = DBusAddress('/org/freedesktop/Notifications',
-                               bus_name='org.freedesktop.Notifications',
-                               interface='org.freedesktop.Notifications')
-        notif_id = None
+    from jeepney import DBusAddress, new_method_call
+    from jeepney.io.blocking import open_dbus_connection
+    NOTIFIER = DBusAddress('/org/freedesktop/Notifications',
+                           bus_name='org.freedesktop.Notifications',
+                           interface='org.freedesktop.Notifications')
+    NOTIF_ID = None
 
-elif plt == "darwin":
+elif PLT == "darwin":
     import pync
 else:
     print("unsupported platform")
@@ -30,8 +28,8 @@ else:
 
 
 def notify(title='title', body='text', icon='python'):
-    if plt == "win32":
-        global toaster
+    """Notifier function."""
+    if PLT == "win32":
         toaster.show_toast(
             title,
             body,
@@ -39,15 +37,14 @@ def notify(title='title', body='text', icon='python'):
             icon_path=path.join(
                 path.dirname(__file__), 'data', '%s.ico' % icon)
         )
-    elif plt == "linux":
-        global notif_id
+    elif PLT == "linux":
         reply = None
 
         with closing(open_dbus_connection(bus='SESSION')) as bus:
-            msg = new_method_call(notifier, 'Notify', 'susssasa{sv}i',
+            msg = new_method_call(NOTIFIER, 'Notify', 'susssasa{sv}i',
                                   (
                                       "routEar",
-                                      notif_id or 0,
+                                      NOTIF_ID or 0,
                                       'file://%s' % path.join(path.dirname(__file__),
                                                               'data', '%s.png' % icon),
                                       title,
@@ -56,8 +53,8 @@ def notify(title='title', body='text', icon='python'):
                                       -1,
                                   ))
             reply = bus.send_and_get_reply(msg)
-        notif_id = reply.body[0] if reply else None
-    elif plt == "darwin":
+        globals()['NOTIF_ID'] = reply.body[0] if reply else None
+    elif PLT == "darwin":
         pync.notify(
             f"{title} \n {body}",
             title="routEar"
@@ -73,7 +70,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def callback():
-
+    """Flask app route for /."""
     if request.method == 'POST':
         message = request.json
         print(message)
@@ -82,6 +79,9 @@ def callback():
         notify(message_line_1, message_line_2)
         return Response(status=200)
 
+    return Response(status=403)
 
-def main(args=None):
+
+def main():
+    """Start the flask app on port 8000."""
     app.run(debug=True, host="0.0.0.0", port=8000)
