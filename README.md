@@ -34,6 +34,11 @@ Install the required packages with:
 poetry export -f requirements.txt > r.txt
 pip install -r r.txt
 ```
+or if  you want to use it in a virtual env:
+
+```bash
+poetry install
+```
 
 Run the app with:
 
